@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    stages{
+    stages {
         stage('build') {
             steps {
                 buildApp()
@@ -12,8 +12,8 @@ pipeline {
             }
         }
         stage('test-dev') {
-            steps{
-            test("DEV")
+            steps {
+                test("DEV")
             }
         }
         stage('deploy-stg') {
@@ -43,7 +43,7 @@ def buildApp(){
     echo "Building of node application is starting.."
     sh "docker build -t lieneju/sample-book-app ."
 
-    echo "Pushing imade to docker registry.."
+    echo "Pushing image to docker registry.."
     sh "docker push lieneju/sample-book-app"
 }
 
@@ -52,5 +52,5 @@ def deploy(String environment){
 }
 
 def test(String environment){
-    echo "API test execution against node application on ${environment} environment.."
+    echo "API test executuon against node application on ${environment} environment.."
 }
