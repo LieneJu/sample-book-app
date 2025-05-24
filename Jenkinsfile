@@ -3,7 +3,9 @@ pipeline {
     stages{
         stage('build') {
             steps {
+                script{
                 build()
+                }
             }
         }
         stage('deploy-dev') {
